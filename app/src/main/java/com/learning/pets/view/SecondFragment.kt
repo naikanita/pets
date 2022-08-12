@@ -22,6 +22,7 @@ class SecondFragment : Fragment() {
 
     private var fragmentSecondBinding: FragmentSecondBinding? = null
     private lateinit var emptyBinding: EmptyLayoutBinding
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = fragmentSecondBinding!!
@@ -41,19 +42,7 @@ class SecondFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val urlLink = requireArguments().getString(URL)
-
-        emptyBinding = binding.customEmptyView
-
-        binding.textviewSecond.text = getString(R.string.press_button)
-        binding.buttonSecond.text = urlLink
-        binding.buttonSecond.paintFlags =
-            binding.buttonSecond.paintFlags or Paint.UNDERLINE_TEXT_FLAG
-        binding.buttonSecond.setOnClickListener {
-            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(urlLink))
-            startActivity(browserIntent)
-        }
+        setupData()
     }
 
     override fun onResume() {
@@ -68,6 +57,24 @@ class SecondFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         fragmentSecondBinding = null
+    }
+
+    /**
+     * This method is used to set data to fragment
+     */
+    private fun setupData() {
+        val urlLink = requireArguments().getString(URL)
+
+        emptyBinding = binding.customEmptyView
+
+        binding.textviewSecond.text = getString(R.string.press_button)
+        binding.buttonSecond.text = urlLink
+        binding.buttonSecond.paintFlags =
+            binding.buttonSecond.paintFlags or Paint.UNDERLINE_TEXT_FLAG
+        binding.buttonSecond.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(urlLink))
+            startActivity(browserIntent)
+        }
     }
 
     /**

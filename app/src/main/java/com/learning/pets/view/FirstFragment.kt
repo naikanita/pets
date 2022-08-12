@@ -43,17 +43,7 @@ class FirstFragment : Fragment(), PetAdapter.ItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        emptyBinding = binding.customEmptyView
-        loadingBinding = binding.customOverlayView
-
-        viewModel = ViewModelProvider(this)[SharedViewModel::class.java]
-        viewModel.getPetList(PetApplication.applicationContext())!!
-            .observe(viewLifecycleOwner) { petList ->
-                val adapter = PetAdapter(this, petList)
-                fragmentFirstBinding?.recyclerViewPets?.adapter = adapter
-            }
-
+        setupData()
     }
 
     override fun onDestroyView() {
@@ -94,5 +84,20 @@ class FirstFragment : Fragment(), PetAdapter.ItemClickListener {
         emptyBinding.root.visibility = View.GONE
         loadingBinding.root.visibility = View.VISIBLE
         fragmentFirstBinding?.recyclerViewPets?.visibility = View.VISIBLE
+    }
+
+    /**
+     * This method is used to setup data
+     */
+    private fun setupData() {
+        emptyBinding = binding.customEmptyView
+        loadingBinding = binding.customOverlayView
+        viewModel = ViewModelProvider(this)[SharedViewModel::class.java]
+
+        viewModel.getPetList(PetApplication.applicationContext())!!
+            .observe(viewLifecycleOwner) { petList ->
+                val adapter = PetAdapter(this, petList)
+                fragmentFirstBinding?.recyclerViewPets?.adapter = adapter
+            }
     }
 }

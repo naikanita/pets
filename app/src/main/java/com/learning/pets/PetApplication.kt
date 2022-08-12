@@ -11,7 +11,7 @@ import com.learning.pets.bl.CommonUtil.PET_PREFERENCES
  */
 class PetApplication : Application() {
     companion object {
-        private var instance: Application? = null
+        var instance: Application? = null
         private var sharedPreferences: SharedPreferences? = null
         fun applicationContext(): Context {
             return instance!!.applicationContext

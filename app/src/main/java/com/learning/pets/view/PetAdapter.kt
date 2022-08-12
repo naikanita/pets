@@ -7,6 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.learning.pets.databinding.PetsRowBinding
 import com.learning.pets.model.Pet
 
+/**
+ * @author Anita
+ * This adapter is used to setup pet list data to recycler view
+ */
 class PetAdapter(
     private val itemClickListener: ItemClickListener,
     private val petList: List<Pet?>?
@@ -33,6 +37,9 @@ class PetAdapter(
     override fun getItemCount(): Int = petList!!.size
 }
 
+/**
+ * This class use to hold Pets object data
+ */
 class PetDataHolder(
     private val binding: PetsRowBinding
 ) : RecyclerView.ViewHolder(binding.root) {

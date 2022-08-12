@@ -41,7 +41,6 @@ object PetRepository {
         } catch (exception: Exception) {
             Log.e(TAG, "Reading working hours:$exception")
         }
-        Log.e("WorkingHours22", workingHours.toString())
         return workingHours
     }
 
@@ -77,6 +76,5 @@ object PetRepository {
             Log.e(TAG, "Getting pets data into database:$exception")
         }
         return petLiveData
-
     }
 }

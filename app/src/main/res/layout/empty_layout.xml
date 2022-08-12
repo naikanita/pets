@@ -3,19 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center"
     android:orientation="vertical"
     android:visibility="gone"
     tools:visibility="visible">
 
-    <ImageView
-        android:id="@+id/empty_image"
-        android:layout_width="@dimen/empty_view_height_width"
-        android:layout_height="@dimen/empty_view_height_width"
-        android:src="@drawable/ic_baseline_hourglass_empty_24"
-        android:contentDescription="@string/app_name"/>
-
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/emptyMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,5 +18,7 @@
         android:fontFamily="casual"
         android:text="@string/non_working"
         android:textColor="@color/black"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:drawableTopCompat="@drawable/ic_baseline_hourglass_empty_24" />
+
 </LinearLayout>
