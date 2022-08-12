@@ -1,13 +1,10 @@
 <resources>
     <string name="app_name">Sepia Pets</string>
-
     <string name="first_fragment_label">Sepia List</string>
     <string name="second_fragment_label">Pet Details</string>
-
     <string name="previous">Previous</string>
     <string name="non_working">Non non working hours are started!</string>
     <string name="press_button">Press Below button to get More Details</string>
-    <string name="sepia_pets">Sepia Pets</string>
     <string name="my_details">My Details</string>
 
 </resources>
