@@ -15,7 +15,7 @@ object CommonUtil {
     const val INDEX0 = 0
     const val INDEX3 = 3
     const val INDEX4 = 4
-    const val DAY_FORMAT: String = "HH"
-    const val TIME_FORMAT: String = "EEE"
+    const val DAY_FORMAT: String = "EEE"
+    const val TIME_FORMAT: String = "HH"
 
 }

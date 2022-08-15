@@ -25,7 +25,7 @@ import java.util.*
 object ReadJsonFiles {
 
     private val TAG: String? = ReadJsonFiles::class.simpleName
-    private val positiveButtonClick = { dialog: DialogInterface, which: Int ->
+    private val positiveButtonClick = { dialog: DialogInterface, button: Int ->
         dialog.dismiss()
     }
 
@@ -91,10 +91,10 @@ object ReadJsonFiles {
 
         val startTime = PetApplication.getSharedPreference()!!.getLong(CommonUtil.START_TIME, 0)
         val endTime = PetApplication.getSharedPreference()!!.getLong(CommonUtil.END_TIME, 0)
+        val currentHoursFormat = SimpleDateFormat(CommonUtil.TIME_FORMAT, Locale.getDefault())
+        val currentHours: String = currentHoursFormat.format(Date())
 
         if (day == "M" || day == "T" || day == "W" || day == "F") {
-            val currentHoursFormat = SimpleDateFormat(CommonUtil.TIME_FORMAT, Locale.getDefault())
-            val currentHours: String = currentHoursFormat.format(Date())
             isDataShouldBeVisible = currentHours.toInt() in startTime..endTime
             Log.d(TAG, "chekWorkingHoursFeasibility:$isDataShouldBeVisible + $currentHours")
         }
