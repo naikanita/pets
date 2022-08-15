@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.learning.pets.PetApplication
+import com.learning.pets.PetApplication.Companion.instance
 import com.learning.pets.R
 import com.learning.pets.bl.CommonUtil.URL
 import com.learning.pets.bl.ReadJsonFiles
@@ -15,6 +16,7 @@ import com.learning.pets.databinding.EmptyLayoutBinding
 import com.learning.pets.databinding.FragmentFirstBinding
 import com.learning.pets.databinding.LoadingLayoutBinding
 import com.learning.pets.viewmodel.SharedViewModel
+import com.learning.pets.viewmodel.ViewModelFactory
 
 /**
  * @author Anita
@@ -27,6 +29,7 @@ class FirstFragment : Fragment(), PetAdapter.ItemClickListener {
     private lateinit var viewModel: SharedViewModel
     private lateinit var emptyBinding: EmptyLayoutBinding
     private lateinit var loadingBinding: LoadingLayoutBinding
+
     private var emptyText: String = ""
         set(value) {
             field = value
@@ -92,7 +95,8 @@ class FirstFragment : Fragment(), PetAdapter.ItemClickListener {
     private fun setupData() {
         emptyBinding = binding.customEmptyView
         loadingBinding = binding.customOverlayView
-        viewModel = ViewModelProvider(this)[SharedViewModel::class.java]
+        viewModel =
+            ViewModelProvider(this, ViewModelFactory(instance!!))[SharedViewModel::class.java]
 
         viewModel.getPetList(PetApplication.applicationContext())!!
             .observe(viewLifecycleOwner) { petList ->

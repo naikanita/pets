@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/row_margin"
-        app:strokeColor="@color/black"
+        app:strokeColor="@color/white"
         app:strokeWidth="@dimen/stroke_width">
 
         <androidx.constraintlayout.widget.ConstraintLayout

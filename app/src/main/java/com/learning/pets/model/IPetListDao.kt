@@ -1,4 +1,4 @@
-package com.learning.pets.repository
+package com.learning.pets.model
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

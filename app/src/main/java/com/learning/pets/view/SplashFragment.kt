@@ -16,7 +16,7 @@ import com.learning.pets.R
 import com.learning.pets.bl.CommonUtil
 import com.learning.pets.databinding.FragmentSplashBinding
 import com.learning.pets.viewmodel.SharedViewModel
-
+import com.learning.pets.viewmodel.ViewModelFactory
 
 class SplashFragment : Fragment() {
 
@@ -39,8 +39,7 @@ class SplashFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        sharedViewModel = ViewModelProvider(this)[SharedViewModel::class.java]
-        editor = PetApplication.getSharedPreference()!!.edit()
+        setupData()
     }
 
     override fun onResume() {
@@ -57,6 +56,19 @@ class SplashFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         fragmentSplashBinding = null
+    }
+
+    /**
+     * This method is used to setup data
+     */
+    private fun setupData() {
+        sharedViewModel =
+            ViewModelProvider(
+                this,
+                ViewModelFactory(PetApplication.instance!!)
+            )[SharedViewModel::class.java]
+
+        editor = PetApplication.getSharedPreference()!!.edit()
     }
 
     /**
