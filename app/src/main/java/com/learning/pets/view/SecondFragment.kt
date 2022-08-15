@@ -65,7 +65,7 @@ class SecondFragment : Fragment() {
     private fun setupData() {
         val urlLink = requireArguments().getString(URL)
 
-        emptyBinding = binding.customEmptyView
+        binding.customEmptyView.also { emptyBinding = it }
 
         binding.textviewSecond.text = getString(R.string.press_button)
         binding.buttonSecond.text = urlLink

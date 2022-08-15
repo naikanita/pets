@@ -9,7 +9,8 @@
         android:id="@+id/FirstFragment"
         android:name="com.learning.pets.view.FirstFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/fragment_first"
+        app:popUpToInclusive="true" >
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />

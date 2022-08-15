@@ -1,8 +1,8 @@
-Sepia Pets Sample App
+#Sepia Pets Sample App
 
 This repository contains the sample code for Sepia Pets using MVVM arch.
 
-Pre-requisites
+#Pre-requisites
 
 1.Android Studio 3.0 or later and you know how to use it.
 
@@ -10,7 +10,8 @@ Pre-requisites
 
 3.A device or emulator that runs SDK level 21
 
-Used Components
+#Used Components
+
 1.RecyclerView and Adapters
 
 2.Room database

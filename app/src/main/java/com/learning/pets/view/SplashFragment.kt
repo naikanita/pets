@@ -7,6 +7,7 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
@@ -15,6 +16,7 @@ import com.learning.pets.R
 import com.learning.pets.bl.CommonUtil
 import com.learning.pets.databinding.FragmentSplashBinding
 import com.learning.pets.viewmodel.SharedViewModel
+
 
 class SplashFragment : Fragment() {
 
@@ -43,7 +45,13 @@ class SplashFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
         checkFirstLunch()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
     }
 
     override fun onDestroyView() {

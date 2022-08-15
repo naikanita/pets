@@ -15,10 +15,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/fab_margin"
         android:alpha="0.3"
-        android:fontFamily="casual"
         android:text="@string/non_working"
-        android:textColor="@color/black"
         android:textStyle="bold"
-        app:drawableTopCompat="@drawable/ic_baseline_hourglass_empty_24" />
+        app:drawableTopCompat="@drawable/ic_stat_name" />
 
 </LinearLayout>

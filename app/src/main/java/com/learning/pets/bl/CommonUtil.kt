@@ -11,7 +11,7 @@ object CommonUtil {
     const val URL: String = "ContentUrl"
     const val PET_DATABASE: String = "Pet_Database"
     const val PET_PREFERENCES: String = "Preferences"
-    const val SPLASH_SCREEN_TIME_OUT = 30000L
+    const val SPLASH_SCREEN_TIME_OUT = 3000L
     const val INDEX0= 0
     const val INDEX3= 3
     const val INDEX4= 4
