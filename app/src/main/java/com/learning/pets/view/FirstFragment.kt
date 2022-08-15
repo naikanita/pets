@@ -1,5 +1,7 @@
 package com.learning.pets.view
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -71,25 +73,6 @@ class FirstFragment : Fragment(), PetAdapter.ItemClickListener {
     }
 
     /**
-     * This method is used to show empty view after working hours
-     */
-    private fun showEmptyView() {
-        emptyText = getString(R.string.non_working)
-        loadingBinding.root.visibility = View.GONE
-        emptyBinding.root.visibility = View.VISIBLE
-        fragmentFirstBinding?.recyclerViewPets?.visibility = View.GONE
-    }
-
-    /**
-     * This method is used to show list of pets
-     */
-    private fun showLoadingView() {
-        emptyBinding.root.visibility = View.GONE
-        loadingBinding.root.visibility = View.VISIBLE
-        fragmentFirstBinding?.recyclerViewPets?.visibility = View.VISIBLE
-    }
-
-    /**
      * This method is used to setup data
      */
     private fun setupData() {
@@ -103,5 +86,25 @@ class FirstFragment : Fragment(), PetAdapter.ItemClickListener {
                 val adapter = PetAdapter(this, petList)
                 fragmentFirstBinding?.recyclerViewPets?.adapter = adapter
             }
+    }
+
+    /**
+     * This method is used to show empty view after working hours
+     */
+    private fun showEmptyView() {
+        emptyText = getString(R.string.non_working)
+        loadingBinding.root.visibility = View.GONE
+        emptyBinding.root.visibility = View.VISIBLE
+        fragmentFirstBinding?.recyclerViewPets?.visibility = View.GONE
+        viewModel.showPopup(requireContext())
+    }
+
+    /**
+     * This method is used to show list of pets
+     */
+    private fun showLoadingView() {
+        emptyBinding.root.visibility = View.GONE
+        loadingBinding.root.visibility = View.VISIBLE
+        fragmentFirstBinding?.recyclerViewPets?.visibility = View.VISIBLE
     }
 }

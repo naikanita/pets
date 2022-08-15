@@ -11,6 +11,7 @@ import androidx.lifecycle.viewModelScope
 import com.bumptech.glide.Glide
 import com.learning.pets.bl.CommonUtil
 import com.learning.pets.bl.PetRepository
+import com.learning.pets.bl.ReadJsonFiles
 import com.learning.pets.model.Pet
 import kotlinx.coroutines.launch
 
@@ -51,6 +52,14 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
             editor.putLong(CommonUtil.END_TIME, workingHours.endTime)
             editor.commit()
         }
+    }
+
+    /**
+     * This fun is to show popup for non working hours
+     * @context: object of Context
+     */
+    fun showPopup(context: Context) {
+        ReadJsonFiles.basicPopup(context)
     }
 
     /**

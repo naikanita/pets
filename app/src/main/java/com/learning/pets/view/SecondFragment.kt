@@ -66,8 +66,6 @@ class SecondFragment : Fragment() {
         val urlLink = requireArguments().getString(URL)
 
         binding.customEmptyView.also { emptyBinding = it }
-
-        binding.textviewSecond.text = getString(R.string.press_button)
         binding.buttonSecond.text = urlLink
         binding.buttonSecond.paintFlags =
             binding.buttonSecond.paintFlags or Paint.UNDERLINE_TEXT_FLAG

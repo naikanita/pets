@@ -31,6 +31,7 @@
             android:layout_marginTop="@dimen/fab_margin"
             android:textAlignment="center"
             android:textSize="@dimen/text_size"
+            android:text="@string/press_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

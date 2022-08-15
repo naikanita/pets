@@ -17,6 +17,8 @@
         android:alpha="0.3"
         android:text="@string/non_working"
         android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size"
         app:drawableTopCompat="@drawable/ic_stat_name" />
 
 </LinearLayout>

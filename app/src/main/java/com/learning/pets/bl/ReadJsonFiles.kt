@@ -1,8 +1,11 @@
 package com.learning.pets.bl
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.util.Log
 import com.learning.pets.PetApplication
+import com.learning.pets.R
 import com.learning.pets.bl.CommonUtil.INDEX0
 import com.learning.pets.bl.CommonUtil.INDEX3
 import com.learning.pets.bl.CommonUtil.INDEX4
@@ -22,6 +25,9 @@ import java.util.*
 object ReadJsonFiles {
 
     private val TAG: String? = ReadJsonFiles::class.simpleName
+    private val positiveButtonClick = { dialog: DialogInterface, which: Int ->
+        dialog.dismiss()
+    }
 
     /**
      * This fun is used to read config.json file from assets folder
@@ -29,13 +35,13 @@ object ReadJsonFiles {
      */
     fun readConfigFile(context: Context): WorkingHours {
         // get JSONObject from JSON file
-        val obj = JSONObject(loadJsonData(context, "config.json"))
-        val petSetting = obj.getJSONObject("settings")
+        val obj = JSONObject(loadJsonData(context, context.getString(R.string.json_file2)))
+        val petSetting = obj.getJSONObject(context.getString(R.string.setting_key))
 
         lateinit var workHours: String
 
         for (petIndex in 0 until petSetting.length()) {
-            workHours = petSetting.optString("workHours")
+            workHours = petSetting.optString(context.getString(R.string.work_hours_key))
         }
         val (digits, alphabets) = workHours.partition { it.isDigit() }
         val filteredString = alphabets.filter { it.isLetter() }
@@ -56,18 +62,18 @@ object ReadJsonFiles {
      */
     fun readPetList(context: Context): ArrayList<Pet> {
         // get JSONObject from JSON file
-        val obj = JSONObject(loadJsonData(context, "pets_list.json"))
+        val obj = JSONObject(loadJsonData(context, context.getString(R.string.json_file_name)))
         // fetch JSONArray named pets
-        val petArray = obj.getJSONArray("pets")
+        val petArray = obj.getJSONArray(context.getString(R.string.pet_key))
         val petList: ArrayList<Pet> = ArrayList()
 
         for (petIndex in 0 until petArray.length()) {
             val subDetails = petArray.getJSONObject(petIndex)
             val pet = Pet()
-            pet.imageUrl = subDetails.optString("image_url")
-            pet.title = subDetails.optString("title")
-            pet.contentUrl = subDetails.optString("content_url")
-            pet.dataAdded = subDetails.optString("date_added")
+            pet.imageUrl = subDetails.optString(context.getString(R.string.image_url_key))
+            pet.title = subDetails.optString(context.getString(R.string.title_key))
+            pet.contentUrl = subDetails.optString(context.getString(R.string.content_url_key))
+            pet.dataAdded = subDetails.optString(context.getString(R.string.date_added_key))
             //add data to list
             petList.add(petIndex, pet)
         }
@@ -87,12 +93,13 @@ object ReadJsonFiles {
         val endTime = PetApplication.getSharedPreference()!!.getLong(CommonUtil.END_TIME, 0)
 
         if (day == "M" || day == "T" || day == "W" || day == "F") {
-            val currentHoursFormat = SimpleDateFormat("HH", Locale.getDefault())
+            val currentHoursFormat = SimpleDateFormat(CommonUtil.TIME_FORMAT, Locale.getDefault())
             val currentHours: String = currentHoursFormat.format(Date())
             isDataShouldBeVisible = currentHours.toInt() in startTime..endTime
             Log.d(TAG, "chekWorkingHoursFeasibility:$isDataShouldBeVisible + $currentHours")
         }
         return isDataShouldBeVisible
+
     }
 
     /**
@@ -102,7 +109,7 @@ object ReadJsonFiles {
      */
     private fun firstLetterOfDayOfTheWeek(date: Date?): String {
         val locale = Locale.getDefault()
-        val weekdayNameFormat: DateFormat = SimpleDateFormat("EEE", locale)
+        val weekdayNameFormat: DateFormat = SimpleDateFormat(CommonUtil.DAY_FORMAT, locale)
         val weekday: String = weekdayNameFormat.format(date!!)
         return weekday[0].toString() + ""
     }
@@ -127,6 +134,23 @@ object ReadJsonFiles {
             return ""
         }
         return json
+    }
+
+    /**
+     * This fun is used to show popup when non working hours are started
+     */
+    fun basicPopup(context: Context) {
+        val builder = AlertDialog.Builder(context)
+        with(builder)
+        {
+            setTitle(context.getString(R.string.alert))
+            setMessage(R.string.non_working)
+            setPositiveButton(
+                context.getString(R.string.ok),
+                DialogInterface.OnClickListener(function = positiveButtonClick)
+            )
+            show()
+        }
     }
 }
 

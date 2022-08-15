@@ -3,8 +3,19 @@
     <string name="first_fragment_label">Sepia List</string>
     <string name="second_fragment_label">Pet Details</string>
     <string name="previous">Previous</string>
-    <string name="non_working">Non non working hours are started!</string>
-    <string name="press_button">Press Below button to get More Details</string>
+    <string name="non_working">Application is not accessible! \n &#128073; I will be available from, Monday to Friday, anytime between 9am to 6pm, would be fine.</string>
+    <string name="press_button">Press Below button to get More Details &#128073; </string>
     <string name="my_details">My Details</string>
+    <string name="pet_key">pets</string>
+    <string name="json_file_name">pets_list.json</string>
+    <string name="image_url_key">image_url</string>
+    <string name="title_key">title</string>
+    <string name="content_url_key">content_url</string>
+    <string name="date_added_key">date_added</string>
+    <string name="json_file2">config.json</string>
+    <string name="setting_key">settings</string>
+    <string name="work_hours_key">workHours</string>
+    <string name="alert">&#9203; Alert  &#9203;</string>
+    <string name="ok">OK</string>
 
 </resources>
