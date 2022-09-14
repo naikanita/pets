@@ -20,9 +20,16 @@
 
 4.Navigation arch.
 
-## App images
+### App images
 -----
-![Image Lint](https://github.com/naikanita/pets/blob/b779fde31c379b0666ed70dd54b22c4d322267e4/Images/1stPage.png | width=100 | height=100)
-![Image Lint](https://github.com/naikanita/pets/blob/b779fde31c379b0666ed70dd54b22c4d322267e4/Images/2ndPage.png | width=100 | height=100)
-![Image Lint](https://github.com/naikanita/pets/blob/b779fde31c379b0666ed70dd54b22c4d322267e4/Images/3rdPage.png | width=100 | height=100)
+
+<img src="https://github.com/naikanita/pets/blob/b779fde31c379b0666ed70dd54b22c4d322267e4/Images/1stPage.png" width="100 height=100">
+<img src="https://github.com/naikanita/pets/blob/b779fde31c379b0666ed70dd54b22c4d322267e4/Images/1stPage.png" width="100 height=100">
+<img src="https://github.com/naikanita/pets/blob/b779fde31c379b0666ed70dd54b22c4d322267e4/Images/3rdPage.png" width="100 height=100">
+<p
+![Image Lint](https://github.com/naikanita/pets/blob/b779fde31c379b0666ed70dd54b22c4d322267e4/Images/1stPage.png )
+![Image Lint](https://github.com/naikanita/pets/blob/b779fde31c379b0666ed70dd54b22c4d322267e4/Images/2ndPage.png)
+![Image Lint](https://github.com/naikanita/pets/blob/b779fde31c379b0666ed70dd54b22c4d322267e4/Images/3rdPage.png)>
+</p>
+
 
