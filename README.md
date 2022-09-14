@@ -1,7 +1,7 @@
 # Sepia Pets Sample App
--
+
 ## This repository contains the sample code for Sepia Pets using MVVM arch.
---
+
 ### Pre-requisites
 ---
 1.Android Studio 3.0 or later and you know how to use it.
@@ -20,7 +20,7 @@
 
 4.Navigation arch.
 
-## [Images]
+## App images
 -----
 ![Image Lint](https://github.com/naikanita/pets/blob/b779fde31c379b0666ed70dd54b22c4d322267e4/Images/1stPage.png)
 ![Image Lint](https://github.com/naikanita/pets/blob/b779fde31c379b0666ed70dd54b22c4d322267e4/Images/2ndPage.png)
