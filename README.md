@@ -1,4 +1,4 @@
-# Sepia Pets Sample App
+# Pets Sample App
 
 ## This repository contains the sample code for Sepia Pets using MVVM arch.
 
